@@ -1,0 +1,47 @@
+{
+  "name": "@sweetgreen/sg-node-dynamodb",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/sweetgreen"
+  },
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "description": "SG node dynamodb",
+  "repository": "https://github.com/sweetgreen/sg-node-dynamodb.git",
+  "author": "Sweetgreen",
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.6.1",
+    "@typescript-eslint/parser": "^4.6.1",
+
+    "@types/node": "^14.14.6",
+  },
+  "dependencies": {
+  },
+  "files": [
+    "lib/**/*",
+    "CHANGELOG.md",
+    "package.json",
+    "yarn.lock"
+  ],
+  "scripts": {
+    "start": "npx tsc && node -r dotenv/config lib/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "cz": "cz",
+    "semantic-release": "semantic-release"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
