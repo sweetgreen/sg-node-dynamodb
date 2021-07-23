@@ -7,17 +7,20 @@ export type DynamoDBCondition<T> =
   | ConditionExpression
   | Partial<Record<keyof T, ConditionExpression | any>>;
 
+
+export interface DynamoDbRepositoryOptions {
+  endpoint: string,
+  region: string
+}
 export class DynamoDBRepository<T> {
     mapper: DataMapper;
     dynamoDbClient!: DynamoDB;
   
-    constructor(private readonly entityClass: Newable<T>) {
+    constructor(private readonly entityClass: Newable<T>, options: DynamoDbRepositoryOptions) {
       const environment = 'development';
 
-      console.log({environment})
-
       try {
-        this.dynamoDbClient = new DynamoDB({ endpoint: 'http://dynamodb:8000', region: 'useast-2' })
+        this.dynamoDbClient = new DynamoDB(options)
       } catch(e) {
         const error = e as Error;
         console.error(`Failed to create dynamodb client: ${e.mesage}`)
