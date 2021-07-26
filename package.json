@@ -30,13 +30,16 @@
     "jest": "^27.0.6",
     "lint-staged": "^11.1.0",
     "prettier": "^2.3.2",
-    "semantic-release": "^17.4.4"
+    "semantic-release": "^17.4.4",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
-    "aws-sdk": "^2.951.0",
-    "dotenv": "^10.0.0"
+    "@types/jest": "^26.0.24",
+    "aws-sdk": "^2.953.0",
+    "dotenv": "^10.0.0",
+    "ts-jest": "^27.0.4"
   },
   "files": [
     "lib/**/*",

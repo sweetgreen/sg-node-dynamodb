@@ -10,14 +10,17 @@ export type DynamoDBCondition<T> =
 
 export interface DynamoDbRepositoryOptions {
   endpoint: string,
-  region: string
+  region: string,
+  environment?: string
 }
 export class DynamoDBRepository<T> {
     mapper: DataMapper;
     dynamoDbClient!: DynamoDB;
   
     constructor(private readonly entityClass: Newable<T>, options: DynamoDbRepositoryOptions) {
-      const environment = 'development';
+      const environment = options.environment ?? 'development';
+
+      const tableNamePrefix = environment !== 'production' ? `${environment}-` : undefined;
 
       try {
         this.dynamoDbClient = new DynamoDB(options)
@@ -27,10 +30,9 @@ export class DynamoDBRepository<T> {
 
         throw e;
       }
-      this.mapper = new DataMapper({ client: this.dynamoDbClient, tableNamePrefix: `${environment}-` });
+      this.mapper = new DataMapper({ client: this.dynamoDbClient, tableNamePrefix });
   
       if (environment === 'development') {
-        console.log("Making sure table exists!");
         this.mapper.ensureTableExists(entityClass, {
           readCapacityUnits: 5,
           writeCapacityUnits: 5,
