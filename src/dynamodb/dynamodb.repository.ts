@@ -57,6 +57,10 @@ export class DynamoDBRepository<T> {
     async put(value: T): Promise<T> {
       return this.mapper.put(this.buildEntity(value));
     }
+
+    async update(value: T): Promise<T> {
+      return this.mapper.update(value);
+    }
   
     async get(params: Partial<T>): Promise<T> {
       return this.mapper.get(this.buildEntity(params));
@@ -81,6 +85,13 @@ export class DynamoDBRepository<T> {
       return this.convertMapperResultsToArray(mapperResults);
     }
   
+    async delete(
+      params: Partial<T>,
+      options?: DeleteOptions,
+    ): Promise<Partial<T> | undefined> {
+      return this.mapper.delete(params, options);
+    }
+    
     getMapper() {
       return this.mapper;
     }
