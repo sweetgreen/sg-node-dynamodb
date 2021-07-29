@@ -1,8 +1,5 @@
 {
   "name": "@sweetgreen/sg-node-dynamodb",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/sweetgreen"
-  },
   "version": "0.1.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
