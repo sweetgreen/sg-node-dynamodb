@@ -25,8 +25,8 @@ export class DynamoDBRepository<T> {
       try {
         this.dynamoDbClient = new DynamoDB(options)
       } catch(e) {
-        const error = e as Error;
-        console.error(`Failed to create dynamodb client: ${e.mesage}`)
+        // const error = e as Error;
+        console.error(`Failed to create dynamodb client: ${JSON.stringify(e)}`);
 
         throw e;
       }
