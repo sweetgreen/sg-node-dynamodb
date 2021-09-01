@@ -19,16 +19,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # - name: Setup .npmrc
-      - uses: actions/setup-node@v2
+      - name: Setup .npmrc
+        uses: actions/setup-node@v2
         with:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@sweetgreen'
       
-      - run: yarn install --frozen-lockfile
+      - run: npm i
       
-      - run: yarn build
+      - run: npm build
 
       - run: npm publish
         env:
