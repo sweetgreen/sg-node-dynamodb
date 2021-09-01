@@ -27,4 +27,6 @@ jobs:
       - run: npm run-script build
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+          NPM_TOKEN: ${{ secrets.GH_PAT }}
