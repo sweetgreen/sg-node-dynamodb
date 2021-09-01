@@ -1,13 +1,13 @@
 {
   "name": "@sweetgreen/sg-node-dynamodb",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@sweetgreen"
+    "registry": "https://npm.pkg.github.com"
   },
   "version": "0.1.5",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "description": "SG node dynamodb",
-  "repository": "git://github.com/sweetgreen/sg-node-dynamodb.git",
+  "repository": "https://github.com/sweetgreen/sg-node-dynamodb.git",
   "license": "Internal",
   "author": "Sweetgreen",
   "devDependencies": {
