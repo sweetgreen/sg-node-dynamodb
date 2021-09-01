@@ -28,7 +28,7 @@ jobs:
       
       - run: npm i
       
-      - run: npm build
+      - run: npm run-script build
 
       - run: npm publish
         env:
